@@ -6,7 +6,7 @@ const router = new Router();
 
 router.get('/', (ctx, next) => {
 	console.log('>>')
-	setTimeout(() => { 	ctx.body = 'llll' }, 1000)
+	ctx.body = 'lll'
 });
 
 app

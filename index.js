@@ -1,26 +1,11 @@
-const { GraphQLServer } = require('graphql-yoga')
-const axios = require('axios')
+const { GraphQLServer } = require('graphql-yoga');
+const resolvers = require('./resolvers');
 
-const typeDefs = `
-type Query {
-  description: String
-}
-`
-
-const resolvers = {
-	Query: {
-		// description: () => `This is the API for a simple blogging application`
-		description: async () =>  {
-			const res = await axios.get('http://localhost:3200/')
-			console.log(res);
-			return res.data
-		}
-	}
-}
+console.log(resolvers)
 
 const server = new GraphQLServer({
-	typeDefs,
+	typeDefs: './schema.graphql',
 	resolvers
-})
+});
 
-server.start(() => console.log(`The server is running on http://localhost:4000`))
+server.start(() => console.log(`The server is running on http://localhost:4000`));
