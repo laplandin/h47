@@ -35,8 +35,7 @@ type Course {
     enrolledUsers: [User]
     chapters: [Chapter]
     coverImage: String
-    level: Level
-    chapters: [Chapter]
+    level: Int
 }
 
 type Chapter {
@@ -46,4 +45,9 @@ type Chapter {
     content: String
     done: Boolean
     course: Course
+}
+
+enum ChapterType {
+    ARTICLE
+    TEST
 }
