@@ -1,3 +1,49 @@
 type Query {
     description: String
 }
+
+type User {
+    id: ID!
+    email: String!
+    role: Role
+    ecoindex: Int
+    enrolledTo: [Course]
+    startedCourses: [Course]
+    currentCourse: Course
+    profile: Profile
+}
+
+type Profile {
+    phone: String
+    firstName: String
+    lastName: String
+    address: String
+    country: String
+    region: String
+    city: String
+}
+
+enum Role {
+    ADMIN
+    USER
+}
+
+type Course {
+    id: ID!
+    title: String!
+    description: String
+    enrolledUsers: [User]
+    chapters: [Chapter]
+    coverImage: String
+    level: Level
+    chapters: [Chapter]
+}
+
+type Chapter {
+    id: ID!
+    title: String
+    chapterType: ChapterType
+    content: String
+    done: Boolean
+    course: Course
+}
