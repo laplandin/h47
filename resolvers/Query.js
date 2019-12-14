@@ -1,5 +1,5 @@
-const { query } = require('./Test');
+const { query: courses } = require('./Course');
 
 module.exports = {
-	description: query,
+	courses,
 };

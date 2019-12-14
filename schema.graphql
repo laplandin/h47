@@ -1,5 +1,8 @@
 type Query {
-    description: String
+    courses: [Course!]!
+    course(id: ID!): Course
+    users: [User!]
+    user(id: ID!): User
 }
 
 type User {
@@ -32,10 +35,12 @@ type Course {
     id: ID!
     title: String!
     description: String
-    enrolledUsers: [User]
+    enrolledUsers: Int
     chapters: [Chapter]
     coverImage: String
     level: Int
+    duration: Int
+    tag: String
 }
 
 type Chapter {
@@ -45,6 +50,7 @@ type Chapter {
     content: String
     done: Boolean
     course: Course
+    duration: Int
 }
 
 enum ChapterType {
