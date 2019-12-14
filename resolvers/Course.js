@@ -42,21 +42,33 @@ const courses = async () => {
 };
 
 const course = async (parent, args, context) => {
-	console.log(args.id);
+	const { id } = args;
 	const table = 'courses';
 	const entity = 'course';
 	const descriminator = 'chapter';
-	console.log(id, `/${table}/${entity}/slug/${args.id}/`);
-	const course = await axios.get(`/${table}/${entity}/slug/${id}/`);
-	const { data } = course.data.tablesList.find(table => table.metaData.name === `${table}_${entity}__${descriminator}`);
-	console.log('data', data);
-	const pureData = data
-		.map(item => {
-			item.title = item.course.name;
-			item.chapters = item.chapter;
-			return item;
-		});
-	return pureData;
+	console.log(id, `/${table}/${entity}/slug/${id}/`);
+	const response = await axios.get(`/${table}/${entity}/slug/${id}/`);
+	const { data: course } = response.data.formsList[0];
+	course.title = course.name;
+	course.coverImage = course.picture;
+	course.tag = course.tag.name;
+	course.level = parseInt(course.difficulty.name);
+	course.enrolledUsers = Math.round(Math.random() * 100);
+	course.createDate = course.created_date;
+	course.enrolledUsers = course.enrolled_users;
+	
+	const { data: chapters } = response.data.tablesList
+		.find(t => t.metaData.name === `${table}_${entity}__${descriminator}`);
+		
+	const normalizedChapters = chapters.map(i => {
+		i.title = i.name;
+		i.content = JSON.stringify(i.content);
+		return i;
+	});
+
+	const res = { ...course, ...{ chapters: normalizedChapters } };
+	// console.log(res);
+	return res;
 };
 
 exports.courses = courses;
