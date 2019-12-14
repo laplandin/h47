@@ -6,7 +6,7 @@ const { DATA_PATH, TAGS_ENUM } = require('../const');
 // picture -> coverImage
 // course progress(courseId, UserId) -> enrolled
 // content
-const query = async () => {
+const courses = async () => {
 	console.log('start');
 	const courses = await axios.get('/courses/course/');
 	const data = courses.data.tablesList;
@@ -42,11 +42,14 @@ const query = async () => {
 };
 
 const course = async (id) => {
-	const courses = await axios.get(`/courses/course/slug/${id}`);
-	const data = courses.data.tablesList;
+	const table = 'courses';
+	const entity = 'course';
+	const descriminator = 'chapter';
+	console.log(id, `/${table}/${entity}/slug/${id}/`);
+	const course = await axios.get(`/${table}/${entity}/slug/${id}/`);
+	const { data } = course.data.tablesList.find(table => table.metaData.name === `${table}_${entity}__${descriminator}`);
+	console.log('data', data);
 	const pureData = data
-		.map(item => item.data)
-		.flat()
 		.map(item => {
 			item.title = item.course.name;
 			item.chapters = item.chapter;
@@ -55,4 +58,5 @@ const course = async (id) => {
 	return pureData;
 };
 
-exports.query = query;
+exports.courses = courses;
+exports.course = course;

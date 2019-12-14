@@ -1,5 +1,6 @@
-const { query: courses } = require('./Course');
+const { courses, course } = require('./Course');
 
 module.exports = {
 	courses,
+	course,
 };
