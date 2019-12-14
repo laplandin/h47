@@ -37,15 +37,16 @@ const courses = async () => {
 	// 	return acc;
 	// }, {});
 	// console.log('>>>', progressPureData);
-	
+
 	return pureData;
 };
 
-const course = async (id) => {
+const course = async (parent, args, context) => {
+	console.log(args.id);
 	const table = 'courses';
 	const entity = 'course';
 	const descriminator = 'chapter';
-	console.log(id, `/${table}/${entity}/slug/${id}/`);
+	console.log(id, `/${table}/${entity}/slug/${args.id}/`);
 	const course = await axios.get(`/${table}/${entity}/slug/${id}/`);
 	const { data } = course.data.tablesList.find(table => table.metaData.name === `${table}_${entity}__${descriminator}`);
 	console.log('data', data);
