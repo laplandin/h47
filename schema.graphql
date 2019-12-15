@@ -48,14 +48,9 @@ type Course {
 type Chapter {
     id: ID!
     title: String
-    chapterType: ChapterType
+    chapterType: String
     content: String
     done: Boolean
     course: Course
     duration: Int
-}
-
-enum ChapterType {
-    ARTICLE
-    TEST
 }

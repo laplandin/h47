@@ -10,6 +10,7 @@ const getChapters = async (courseId) => {
 
 	const normalizedChapters = chapters.map(i => {
 		i.title = i.name;
+		i.chapterType = i.chaptertype.name;
 		i.content = JSON.stringify(i.content);
 		return i;
 	});
