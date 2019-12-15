@@ -47,6 +47,8 @@ type Course {
     level: Int
     duration: Int
     tag: String
+    content: String
+    enrolledUsersCount: String
 }
 
 type Chapter {
