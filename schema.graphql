@@ -4,7 +4,7 @@ type Query {
     users: [User!]
     user(id: ID!): User
     chapters(courseId: ID!): [Chapter!]!
-    chapter(courseId: ID!, chapterId: String!): Chapter
+    chapter(courseId: ID!, chapterId: ID!): Chapter
 }
 
 type User {

@@ -25,7 +25,6 @@ const chapters = async (parent, args, ctx) => {
 
 const chapter = async (parent, args, ctx) => {
 	const { courseId, chapterId } = args;
-	console.log('>>>', courseId, chapterId);
 	const chapters = await getChapters(courseId);
 	const founded = chapters.find(chapter => chapter.id === chapterId);
 	return founded;
