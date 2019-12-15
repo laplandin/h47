@@ -3,6 +3,8 @@ type Query {
     course(id: ID!): Course
     users: [User!]
     user(id: ID!): User
+    chapters(courseId: ID!): [Chapter!]!
+    chapter(courseId: ID!, chapterId: String!): Chapter
 }
 
 type User {

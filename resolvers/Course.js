@@ -46,7 +46,6 @@ const course = async (parent, args, context) => {
 	const table = 'courses';
 	const entity = 'course';
 	const descriminator = 'chapter';
-	console.log(id, `/${table}/${entity}/slug/${id}/`);
 	const response = await axios.get(`/${table}/${entity}/slug/${id}/`);
 	const { data: course } = response.data.formsList[0];
 	course.title = course.name;
@@ -67,7 +66,6 @@ const course = async (parent, args, context) => {
 	});
 
 	const res = { ...course, ...{ chapters: normalizedChapters } };
-	// console.log(res);
 	return res;
 };
 
