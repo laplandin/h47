@@ -18,6 +18,10 @@ const getChapters = async (courseId) => {
 	return normalizedChapters;
 };
 
+const updateChapter = async (chapterId) => {
+
+};
+
 const chapters = async (parent, args, ctx) => {
 	const { courseId } = args;
 	return await getChapters(courseId);
@@ -30,5 +34,15 @@ const chapter = async (parent, args, ctx) => {
 	return founded;
 };
 
+const updateChapterContent = async (parent, args) => {
+	const { chapterId, content } = args;
+	const url = `/courses/chapter/slug/${chapterId}/?edit-object`;
+	await axios.patch(url, {
+		content: typeof content === 'string' ? JSON.parse(content) : content
+	});
+	return content
+};
+
 exports.chapters = chapters;
 exports.chapter = chapter;
+exports.updateChapterContent = updateChapterContent;

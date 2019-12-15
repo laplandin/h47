@@ -7,7 +7,6 @@ const { DATA_PATH, TAGS_ENUM } = require('../const');
 // course progress(courseId, UserId) -> enrolled
 // content
 const courses = async () => {
-	console.log('start');
 	const courses = await axios.get('/courses/course/');
 	const data = courses.data.tablesList;
 	const pureData = data
@@ -16,14 +15,13 @@ const courses = async () => {
 		.map(item => {
 			item.title = item.name;
 			item.coverImage = item.picture;
-			item.tag = item.tag.name;
+			item.tag = item.tag[0].name;
 			item.level = parseInt(item.difficulty.name);
 			item.enrolledUsers = Math.round(Math.random() * 100);
 			item.createDate = item.created_date;
 			item.enrolledUsers = item.enrolled_users;
 			return item;
 		});
-	console.log('end');
 	// const params = new URLSearchParams();
 	// pureData.forEach(course => params.append('course', course.id));
 	//
@@ -55,7 +53,8 @@ const course = async (parent, args, context) => {
 	course.enrolledUsers = Math.round(Math.random() * 100);
 	course.createDate = course.created_date;
 	course.enrolledUsers = course.enrolled_users;
-	
+
+	console.log('>>>>', response.data);
 	const { data: chapters } = response.data.tablesList
 		.find(t => t.metaData.name === `${table}_${entity}__${descriminator}`);
 		

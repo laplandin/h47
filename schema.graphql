@@ -7,6 +7,10 @@ type Query {
     chapter(courseId: ID!, chapterId: ID!): Chapter
 }
 
+type Mutation {
+    updateChapterContent(chapterId: String!, content: String!): Chapter!
+}
+
 type User {
     id: ID!
     email: String!
