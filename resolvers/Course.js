@@ -1,6 +1,7 @@
 const { get } = require('lodash');
 const axios = require('../axios');
 const { DATA_PATH, TAGS_ENUM } = require('../const');
+const coursesData = require('../data/courses.json');
 
 // getRandomTag =
 // picture -> coverImage
@@ -38,7 +39,7 @@ const courses = async () => {
 	// }, {});
 	// console.log('>>>', progressPureData);
 
-	return pureData;
+	return coursesData;
 };
 
 const course = async (parent, args, context) => {
@@ -55,10 +56,10 @@ const course = async (parent, args, context) => {
 	course.enrolledUsers = Math.round(Math.random() * 100);
 	course.createDate = course.created_date;
 	course.enrolledUsers = course.enrolled_users;
-	
+
 	const { data: chapters } = response.data.tablesList
 		.find(t => t.metaData.name === `${table}_${entity}__${descriminator}`);
-		
+
 	const normalizedChapters = chapters.map(i => {
 		i.title = i.name;
 		i.content = JSON.stringify(i.content);

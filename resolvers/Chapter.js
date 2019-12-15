@@ -1,21 +1,9 @@
 const axios = require('../axios');
+const chaptersData = require('../data/chapters.json');
 
 const getChapters = async (courseId) => {
-	const table = 'courses';
-	const entity = 'course';
-	const descriminator = 'chapter';
-	const response = await axios.get(`/${table}/${entity}/slug/${courseId}/`);
-	const { data: chapters } = response.data.tablesList
-		.find(t => t.metaData.name === `${table}_${entity}__${descriminator}`);
 
-	const normalizedChapters = chapters.map(i => {
-		i.title = i.name;
-		i.chapterType = i.chaptertype.name;
-		i.content = JSON.stringify(i.content);
-		return i;
-	});
-
-	return normalizedChapters;
+	return chaptersData;
 };
 
 const chapters = async (parent, args, ctx) => {

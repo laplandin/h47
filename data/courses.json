@@ -1,0 +1,33 @@
+[
+  {
+    "id": "1",
+    "title": "Название курса 1",
+    "tag": "eco1",
+    "enrolledUsersCount": 125,
+    "level": 5,
+    "duration": 15,
+    "coverImage": "https://st.depositphotos.com/8989.com",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor… Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+    "content": "We recommend Monty Python and the Holy Grail for some light-humoured dummy text. Get ready for plenty of religious references that fail to make sense – Monty Python fans know what we mean.\n\nYou can even choose your preferences in terms of headers, text format and lists. Imagine that instead of “Lorem Ipsum” your content title reads: “We want a shrubbery!!”. Your design team will have jokes for days.\n\nOther available options include Star Wars, The Simpsons and Doctor Who. Fun! We recommend Monty Python and the Holy Grail for some light-humoured dummy text. Get ready for plenty of religious references that fail to make sense – Monty Python fans know what we mean.\n\nYou can even choose your preferences in terms of headers, text format and lists. Imagine that instead of “Lorem Ipsum” your content title reads: “We want a shrubbery!!”. Your design team will have jokes for days.\n\nOther available options include Star Wars, The Simpsons and Doctor Who. Fun!"
+  },
+  {
+    "id": "2",
+    "title": "Название курса 2",
+    "tag": "eco2",
+    "enrolledUsersCount": 30,
+    "level": 2,
+    "duration": 12,
+    "coverImage": "https://st.depositphotos.com/unknown.jpg",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…"
+  },
+  {
+    "id": "3",
+    "title": "Название курса 3",
+    "tag": "eco3",
+    "enrolledUsersCount": 122,
+    "level": 3,
+    "duration": 10,
+    "coverImage": "https://st.depositphotos.com/ps.com",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…"
+  }
+]
